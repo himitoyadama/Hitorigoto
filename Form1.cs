@@ -1,51 +1,89 @@
-public Form1()
+namespace ブラウザの作成
 {
-    InitializeComponent();
-}
-
-private void Form1_Load(object sender, EventArgs e)
-{
-    Browser.Url = new Uri("https://www.google.com/ ");
-}
-
-private void BtnHome_Click(object sender, EventArgs e)
-{
-    Browser.Url = new Uri("https://www.google.com/ ");
-}
-
-private void BtnBack_Click(object sender, EventArgs e)
-{
-    Browser.GoBack();
-}
-
-private void BtnNext_Click(object sender, EventArgs e)
-{
-    Browser.GoForward();
-}
-
-private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-{
-
-}
-
-private void Browser_Navigated(object sender, EventArgs e)
-{
-    txtUrl.Text = Browser.Url.ToString();
-
-    BtnBack.Enabled = Browser.CanGoBack;
-    BtnNext.Enabled = Browser.CanGoForward;
-}
-
-private void TxtUrl_KeyDown(object sender, KeyEventArgs e)
-{
-    if(e.KeyCode.Equals(Keys.Enter))
+    public partial class Form1 : Form
     {
-        Browser.Url = new Uri(txtUrl.Text);
-    }
-}
+        public Form1()
+        {
+            InitializeComponent();
+        }
 
-private void FirstFavorite_DoubleClick(object sender, EventArgs e)
-{
-    string url = FirstFavorite.Items[FirstFavorite.SelectedIndex].ToString();
-    Browser.Url = new Uri(url);
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Browser.Url = new Uri("https://www.google.com/ ");
+            {
+                FavoriteData data = new FavoriteData();
+                data.Title = "google";
+                data.Url = "https://www.google.com/";
+
+                FirstFavorite.Items.Add(data);
+            }
+            
+            {
+                FavoriteData data = new FavoriteData();
+                data.Title = "google";
+                data.Url = "http://goo.ne.jp/";
+
+                FirstFavorite.Items.Add(data);
+            }
+
+            
+            
+
+
+            
+           
+        }
+
+        private void BtnHome_Click(object sender, EventArgs e)
+        {
+            Browser.Url = new Uri("https://www.google.com/ ");
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            Browser.GoBack();
+        }
+
+        private void BtnNext_Click(object sender, EventArgs e)
+        {
+            Browser.GoForward();
+        }
+
+        private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void Browser_Navigated(object sender, EventArgs e)
+        {
+            txtUrl.Text = Browser.Url.ToString();
+
+            BtnBack.Enabled = Browser.CanGoBack;
+            BtnNext.Enabled = Browser.CanGoForward;
+        }
+
+        private void TxtUrl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode.Equals(Keys.Enter))
+            {
+                Browser.Url = new Uri(txtUrl.Text);
+            }
+        }
+
+        private void FirstFavorite_DoubleClick(object sender, EventArgs e)
+        {
+            FavoriteData data = (FavoriteData)FirstFavorite.Items[FirstFavorite.SelectedIndex];
+            
+            Browser.Url = new Uri(data.Url);
+        }
+    }
+    public class FavoriteData
+    {
+        public string Title = "";
+        public string Url = "";
+
+        public override string ToString() {
+        return Title;
+        }
+    }
 }
