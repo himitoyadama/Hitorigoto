@@ -1,3 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace ブラウザの作成
 {
     public partial class Form1 : Form
@@ -75,6 +85,25 @@ namespace ブラウザの作成
             FavoriteData data = (FavoriteData)FirstFavorite.Items[FirstFavorite.SelectedIndex];
             
             Browser.Url = new Uri(data.Url);
+        }
+
+        private void AddFavorite_Click(object sender, EventArgs e)
+        {
+            /*FavoriteData data = (FavoriteData)FirstFavorite.Items[FirstFavorite.SelectedIndex];
+            Browser.Url = new Uri(data.Url);*/
+
+            FavoriteData data = new FavoriteData();
+            data.Title = Browser.DocumentTitle;
+            data.Url = Browser.Url.ToString();
+
+            FirstFavorite.Items.Add(data);
+        }
+
+        private void DeleteFavorite_Click(object sender, EventArgs e)
+        {
+            FavoriteData data = (FavoriteData)FirstFavorite.Items[FirstFavorite.SelectedIndex];
+
+            FirstFavorite.Items.Remove(data);
         }
     }
     public class FavoriteData
