@@ -1,9 +1,3 @@
-# Hitorigoto
-【プログラミング講座（C#）】第32回 ブラウザの作成　お気に入り機能２【独り言】
-https://www.youtube.com/watch?v=Ln2ttk2LFps
-
-【プログラミング講座（C#）】第31回 ブラウザの作成　お気に入り機能【独り言】
-https://www.youtube.com/watch?v=h4tRdW6iDA4&list=PLzEbEpZ4njvOYgYhRNwmaEEhKXFL_aee1&index=5
-
-【プログラミング講座（C#）】第28回 ブラウザの作成【独り言】
-https://www.youtube.com/watch?v=CzXIJQpaqjc&list=PLzEbEpZ4njvOYgYhRNwmaEEhKXFL_aee1&index=6
+# photopea
+【使い方】初心者向け！Photopeaで最初にやると便利な設定＆psdファイルの開き方と書き出し方法【画像編集】【無料WEBツール】【フォトピー】
+https://www.youtube.com/watch?v=wNCOejr82u4
